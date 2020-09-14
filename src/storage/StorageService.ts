@@ -48,10 +48,7 @@ export class StorageService {
     };
 
     // Downloads the file
-    await this.storage
-      .bucket(this.bucketName)
-      .file(name)
-      .download(options);
+    await this.storage.bucket(this.bucketName).file(name).download(options);
 
     console.log(
       `gs://${this.bucketName}/${name} downloaded to ${destFilePath}.`

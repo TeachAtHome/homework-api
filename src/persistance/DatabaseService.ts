@@ -9,19 +9,16 @@ export interface DatabaseService {
   ) => Promise<Entity>;
   getCollectionEntries: (
     collectionName: string,
-    // tslint:disable-next-line:no-any
-    query: any
+    query: any // eslint-disable-line @typescript-eslint/no-explicit-any
   ) => Promise<Entity[]>;
   getAllCollectionEntries: (collectionName: string) => Promise<Entity[]>;
   deleteCollectionEntry: (
     collectionName: string,
-    // tslint:disable-next-line:no-any
-    query: any
+    query: any // eslint-disable-line @typescript-eslint/no-explicit-any
   ) => Promise<void>;
   updateCollectionEntry: (
     collectionName: string,
-    // tslint:disable-next-line:no-any
-    query: any,
+    query: any, // eslint-disable-line @typescript-eslint/no-explicit-any
     objectToUpdate: Entity
   ) => Promise<void>;
 }

@@ -48,8 +48,7 @@ export class MongoDBService implements DatabaseService {
     collectionName: string,
     objectToInsert: Entity
   ): Promise<Entity> {
-    // tslint:disable-next-line: no-any
-    const dbObject: any = MongoDBService.mapEntityToId(objectToInsert);
+    const dbObject: any = MongoDBService.mapEntityToId(objectToInsert); // eslint-disable-line @typescript-eslint/no-explicit-any
     const response = await this.database
       .collection(collectionName)
       .insertOne(dbObject);
@@ -58,34 +57,26 @@ export class MongoDBService implements DatabaseService {
 
   async getCollectionEntries(
     collectionName: string,
-    // tslint:disable-next-line:no-any
-    query: any
+    query: any // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<Entity[]> {
     if (query['id']) {
       query['_id'] = new ObjectID(query['id']);
       delete query['id'];
     }
     return (
-      await this.database
-        .collection(collectionName)
-        .find(query)
-        .toArray()
+      await this.database.collection(collectionName).find(query).toArray()
     ).map(MongoDBService.mapIdToEntity);
   }
 
   async getAllCollectionEntries(collectionName: string): Promise<Entity[]> {
     return (
-      await this.database
-        .collection(collectionName)
-        .find()
-        .toArray()
+      await this.database.collection(collectionName).find().toArray()
     ).map(MongoDBService.mapIdToEntity);
   }
 
   async deleteCollectionEntry(
     collectionName: string,
-    // tslint:disable-next-line:no-any
-    query: any
+    query: any // eslint-disable-line @typescript-eslint/no-explicit-any
   ): Promise<void> {
     try {
       if (query['id']) {
@@ -100,8 +91,7 @@ export class MongoDBService implements DatabaseService {
 
   async updateCollectionEntry(
     collectionName: string,
-    // tslint:disable-next-line:no-any
-    query: any,
+    query: any, // eslint-disable-line @typescript-eslint/no-explicit-any
     objectToUpdate: Entity
   ): Promise<void> {
     try {
@@ -116,16 +106,15 @@ export class MongoDBService implements DatabaseService {
     }
   }
 
-  // tslint:disable-next-line: no-any
   private static mapIdToEntity(dbObject: any): any {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     dbObject['id'] = dbObject['_id'].toString();
     delete dbObject['_id'];
     return dbObject;
   }
 
-  // tslint:disable-next-line: no-any
   private static mapEntityToId(entity: Entity): any {
-    // tslint:disable-next-line: no-any
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const dbObject: any = entity;
     if (entity['id']) {
       dbObject['_id'] = new ObjectID(entity['id']);

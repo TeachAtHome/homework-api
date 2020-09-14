@@ -99,11 +99,11 @@ export class Application {
       })
       .then(() => {
         console.info('Shutdown complete');
-        process.exit(exitCode);
+        process.exit(exitCode); // eslint-disable-line no-process-exit
       })
-      .catch(err => {
+      .catch((err) => {
         console.error('Error during shutdown', err);
-        process.exit(1);
+        process.exit(1); // eslint-disable-line no-process-exit
       });
   }
 

@@ -1,6 +1,6 @@
-import { Entity } from "../types/Entity";
+import { Entity } from '../types/Entity';
 
-export interface Document extends Entity{
-    documentRefId: string
-    groups: string[]
+export interface Document extends Entity {
+  documentRefId: string;
+  groups: string[];
 }

@@ -26,7 +26,7 @@ export class GroupService {
 
   async checkGroupExists(name: string): Promise<boolean> {
     const group = await this.groupRepository.getGroupByName(name);
-    return group != null;
+    return group !== null;
   }
 
   async addGroup(name: string, personIds: string[]): Promise<Group> {

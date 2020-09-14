@@ -1,4 +1,4 @@
-import { Application } from './Application';
+import { Application } from './Application'; // eslint-disable-line node/no-unpublished-import
 
 /**
  * Entrypoint for bootstrapping and starting the application.

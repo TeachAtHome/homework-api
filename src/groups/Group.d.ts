@@ -1,6 +1,6 @@
-import { Entity } from "../types/Entity";
+import { Entity } from '../types/Entity';
 
 export interface Group extends Entity {
-    name: string
-    personIds: string[]
+  name: string;
+  personIds: string[];
 }
