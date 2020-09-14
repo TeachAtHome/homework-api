@@ -1,0 +1,6 @@
+\node_modules
+key.json
+mongo_mock.js
+.vscode/
+.DS_Store
+build/
