@@ -1,0 +1,13 @@
+webpack.config.js
+Dockerfile
+docker-compose.yml
+fill_example_data.sh
+prettier.config.js
+tsconfig.json
+.eslintignore
+.eslintrc.json
+src
+docs
+.github
+
+.git
